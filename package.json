@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "nodemon ./server.js",
     "ui": "browser-sync start --config bs-config.js",
-    "push": "rsync -rzh --exclude 'node_modules/' --info=progress2 --no-inc-recursive --delete ./ server:/srv/macy",
+    "push": "rsync -rzh --exclude 'node_modules/' --exclude '.env' --info=progress2 --no-inc-recursive --delete ./ server:/srv/macy",
     "dump": "rm -rf dump/ && mongodump --db macy --gzip",
     "dumpPush": "yarn dump && rsync -rzh --info=progress2 --no-inc-recursive --delete ./dump/ server:/srv/macy/dump/",
     "dumpRestore": "mongorestore --drop --gzip --db macy dump/macy"
