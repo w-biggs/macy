@@ -20,7 +20,7 @@ const clientP = mongoose.connect('mongodb://127.0.0.1:27017/macy')
       {
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: "http://localhost:3030/auth/google/callback"
+        callbackURL: process.env.URL + '/auth/google/callback'
       },
       function(accessToken, refreshToken, profile, done) {
         console.log(accessToken, refreshToken, profile);
