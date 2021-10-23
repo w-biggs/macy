@@ -1,0 +1,22 @@
+{
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon ./server.js",
+    "ui": "browser-sync start --config bs-config.js",
+    "push": "rsync -rzh --exclude 'node_modules/' --info=progress2 --no-inc-recursive --delete ./ server:/srv/macy"
+  },
+  "dependencies": {
+    "connect-mongo": "^4.6.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "hbs": "^4.1.2",
+    "mongoose": "^6.0.12",
+    "passport": "^0.5.0",
+    "passport-google-oauth": "^2.0.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.27.5",
+    "nodemon": "^2.0.14"
+  }
+}

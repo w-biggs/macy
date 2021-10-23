@@ -1,0 +1,15 @@
+{{> head}}
+
+<main class="uk-section uk-section-default">
+  <div class="uk-container uk-container-small">
+    {{#if user}}
+    Welcome {{user.name}}!
+    {{else}}
+    <a href="/auth/google" class="uk-button uk-button-primary">
+      Sign In with Google
+    </a>
+    {{/if}}
+  </div>
+</main>
+
+{{> foot}}
