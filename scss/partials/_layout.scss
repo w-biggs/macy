@@ -1,0 +1,32 @@
+main:not(.login-screen) {
+  padding-left: 240px;
+}
+
+.uk-card {
+  border-radius: 20px;
+  box-shadow: none;
+}
+
+.uk-button-text {
+  text-transform: none;
+  vertical-align: middle;
+  display: inline-block;
+  transition: opacity 0.1s ease-out;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid #333;
+  }
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.uk-table th {
+  text-transform: none;
+}

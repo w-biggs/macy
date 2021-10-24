@@ -1,0 +1,13 @@
+.family-member {
+  background: color.scale($card-default-background, $lightness: 50%);
+  padding: 1em;
+
+  h4 {
+    font-weight: normal;
+  }
+
+  .uk-form-label {
+    margin-bottom: 5px;
+    display: block;
+  }
+}

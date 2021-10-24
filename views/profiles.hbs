@@ -1,0 +1,80 @@
+{{> head}}
+{{> header}}
+
+<main class="uk-section uk-section-default">
+  <div class="uk-container">
+    <h1 class="uk-heading-divider">
+      <span>Family</span>
+    </h1>
+    {{#each userDoc.profiles}}
+    <div class="uk-margin family-member">
+      <h2 class="uk-margin-remove uk-heading-line">{{this.name}}</h2>
+      <span class="uk-margin-small">Streak: <b>{{this.streak}}</b> {{ternary this.streak 1 "day" "days"}}</span>
+      <h4 class="uk-margin-small-top uk-heading-divider">
+        <span>Medications</span>
+      </h4>
+      <table class="medication uk-table uk-table-small uk-table-middle">
+        <thead>
+          <tr>
+            <th class="uk-width-medium">Medication name</th>
+            <th>Medication time</th>
+            <th></th>
+            {{#each ../dates}}
+            <th>
+              <span>
+                {{this}}
+              </span>
+            </th>
+            {{/each}}
+            <th class="uk-table-expand"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each medications}}
+          <tr>
+            <th class="uk-width-medium medication-name">
+              <span class="uk-text-bold">{{this.name}}</span>
+            </th>
+            <td class="medication-time" data-time24h="{{minsto24h this.times.[0].time}}">
+              <span>{{minsto12h this.times.[0].time}}</span>
+            </td>
+            <td class="medication-button">
+              <button class="uk-button uk-button-text edit" data-medid="{{this._id}}" data-profileid="{{../_id}}">edit</button>
+              <button class="uk-button uk-button-text delete" data-medid="{{this._id}}" data-profileid="{{../_id}}">delete</button>
+            </td>
+            {{#each this.times.[0].days}}
+            <td>
+              {{this}}
+            </td>
+            {{/each}}
+            <td class="uk-table-expand">
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>
+              <a href="#" class="uk-text-small uk-text-italic add-medication" data-profileid="{{this._id}}">+ add another medication</a>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    {{/each}}
+    <div class="uk-margin-large-top uk-form-stacked">
+      <div class="uk-margin-small">
+        <label class="uk-form-label">Name</label>
+        <div class="uk-form-control">
+          <input type="text" name="membername" id="membername" class="uk-input uk-form-width-medium">
+        </div>
+      </div>
+      <div>
+        <button class="uk-button uk-button-text" id="newmemberbutton" data-userid="{{user._id}}">add new family member</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="/profiles.js"></script>
+{{> foot}}

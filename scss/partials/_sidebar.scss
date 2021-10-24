@@ -1,0 +1,36 @@
+#sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 240px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+
+  .sidebar-logo {
+    width: 100%; 
+  }
+
+  .uk-nav {
+    margin-top: 40px;
+
+    li {
+      font-size: 1.125em;
+
+      &:not(:last-of-type) {
+        margin-bottom: .5em;
+      }
+
+      a {
+        color: black;
+        font-weight: bold;
+    
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+}

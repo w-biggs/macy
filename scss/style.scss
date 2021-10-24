@@ -1,0 +1,23 @@
+@use 'sass:color';
+
+* {
+  box-sizing: border-box;
+}
+
+$global-primary-background: #EEC591;
+$global-primary-background: #EEC591;
+$card-default-background: #FFF0EF;
+$base-heading-font-weight: bold;
+$global-color: black;
+$table-header-cell-color: black;
+
+// Import UIkit
+@import '../node_modules/uikit/src/scss/variables-theme.scss';
+@import '../node_modules/uikit/src/scss/mixins-theme.scss';
+@import '../node_modules/uikit/src/scss/uikit-theme.scss';
+
+// Others
+@import 'partials/layout';
+@import 'partials/sidebar';
+@import 'partials/profiles';
+@import 'partials/login';
