@@ -522,7 +522,7 @@ const clientP = mongoose.connect('mongodb://127.0.0.1:27017/macy')
       const overdue = getOverdueMedications(profile, conv);
       const numOverdue = overdue.length;
       if (numOverdue === 0) {
-        conv.add('No, you\'re not overdue on any medications.');
+        return conv.add('You\'re not overdue on any medications!');
       }
       let overdueString = '';
       overdue.forEach((medication, index) => {
