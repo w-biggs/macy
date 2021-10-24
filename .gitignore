@@ -91,3 +91,5 @@ sw.*
 
 # mongodump
 dump/
+
+service-account.json

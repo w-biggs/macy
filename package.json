@@ -4,22 +4,32 @@
     "dev": "nodemon ./server.js",
     "ui": "browser-sync start --config bs-config.js",
     "push": "rsync -rzh --exclude 'node_modules/' --exclude '.env' --info=progress2 --no-inc-recursive --delete ./ server:/srv/macy",
-    "dump": "rm -rf dump/ && mongodump --db macy --gzip",
+    "dump": "rm -rf dump/ && mongodump --db macy --excludeCollection sessions --gzip",
     "dumpPush": "yarn dump && rsync -rzh --info=progress2 --no-inc-recursive --delete ./dump/ server:/srv/macy/dump/",
+    "dumpGet": "rm -rf dump/ && mongodump -h 1212.one --port 27017 -d macy --gzip",
     "dumpRestore": "mongorestore --drop --gzip --db macy dump/macy"
   },
   "dependencies": {
+    "@assistant/conversation": "^3.8.1",
     "connect-mongo": "^4.6.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
+    "google-auth-library": "^7.10.1",
     "hbs": "^4.1.2",
+    "hbs-utils": "^0.0.4",
     "mongoose": "^6.0.12",
     "passport": "^0.5.0",
-    "passport-google-oauth": "^2.0.0"
+    "passport-google-oauth": "^2.0.0",
+    "uikit": "^3.7.6"
   },
   "devDependencies": {
     "browser-sync": "^2.27.5",
-    "nodemon": "^2.0.14"
+    "gulp": "^4.0.2",
+    "gulp-nodemon": "^2.5.0",
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "nodemon": "^2.0.14",
+    "sass": "^1.43.3"
   }
 }

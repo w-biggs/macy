@@ -1,14 +1,24 @@
 {{> head}}
+{{> header}}
 
 <main class="uk-section uk-section-default">
-  <div class="uk-container uk-container-small">
-    {{#if user}}
-    Welcome {{user.name}}!
-    {{else}}
-    <a href="/auth/google" class="uk-button uk-button-primary">
-      Sign In with Google
-    </a>
-    {{/if}}
+  <div class="uk-container">
+    <span class="uk-h2">Welcome, {{user.name}}!</span>
+    <div class="uk-margin">
+      <h3>Notices</h3>
+      <div class="uk-child-width-1-4@l uk-child-width-1-3@m uk-child-width-1-1" uk-grid>
+        {{#each overdues}}
+        {{#each overdue}}
+        <div>
+          <div class="uk-card uk-card-default uk-card-body uk-card-small">
+            <h4 class="uk-card-title uk-margin-small-bottom">{{../name}}</h4>
+            <p class="uk-margin-small-top">{{../name}} has not taken their {{minsto12h this.time}} {{this.name}} prescription yet.</p>
+          </div>
+        </div>
+        {{/each}}
+        {{/each}}
+      </div>
+    </div>
   </div>
 </main>
 
